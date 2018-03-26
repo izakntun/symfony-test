@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+{% block container %}
+    {% set manzana = fruta.tipo ~' '~ fruta.color%}
+    {% set fecha = date() %}
+    {{ manzana }} {{ dump(fecha) }}
+    {% if productos|length > 0 %}
+        {% for producto in productos %}
+            <h4> Tipo: {{ producto.tipo }}</h4>
+            <h4> Precio: {{ producto.precio }}</h4>
+            <h4> En stock: {{ producto.stock }}</h4>
+            <h4> Procedencia: {{ producto.procedencia }}</h4>
+            <hr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
